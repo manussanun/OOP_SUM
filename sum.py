@@ -26,12 +26,12 @@ class SumMeGameWindow(arcade.Window):
             arcade.draw_text(str(int(self.world.time)), self.world.width - 600, self.world.height - 100,
                             arcade.color.BLACK, 20)
             arcade.draw_text(str(self.world.num1), self.world.width - 900, self.world.height - 300,
-                            arcade.color.BLACK, 20)
+                            arcade.color.BLACK, 40)
             arcade.draw_text(str(self.world.num2), self.world.width - 300, self.world.height - 300,
-                            arcade.color.BLACK, 20)
+                            arcade.color.BLACK, 40)
         if self.world.state == 'over' :
             arcade.draw_text(str(self.world.score), self.world.width/2, self.world.height/2,
-                            arcade.color.BLACK, 50)
+                            arcade.color.BLACK, 60)
 
     def animate(self, delta):
          self.world.animate(delta)
