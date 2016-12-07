@@ -12,11 +12,18 @@ class World:
         self.ans_pos_x = self.width/2
         self.time = 0
         self.score = 0
-        self.num1 = random.randint(0, 1000)
-        self.num2 = random.randint(0, 1000)
+        self.num1 = random.randint(0, 50)
+        self.num2 = random.randint(0, 50)
         self.result = self.num1 + self.num2
 
     def on_key_press(self, key, key_modifiers):
+        if key == arcade.key.SPACE:
+            if self.state == 'start':
+                self.state = 'game'
+                self.score = 0
+            if self.state == 'over':
+                self.state = 'start'
+
         if self.state == 'game':
             if 48 <= key <= 57:
                 self.ans_pos_x -= 11
@@ -41,24 +48,30 @@ class World:
                 elif key == 57:
                     self.ans += '9'
 
-            if key == arcade.key.SPACE:
+            if key == arcade.key.ENTER:
                 self.sum_ans = int(self.ans)
+                if self.result == self.sum_ans:
+                    self.score += 1
                 self.ans = ''
                 self.ans_pos_x = self.width/2
-                self.num1 = random.randint(0, 1000)
-                self.num2 = random.randint(0, 1000)
+                self.num1 = random.randint(0, 50)
+                self.num2 = random.randint(0, 50)
                 self.result = self.num1 + self.num2
 
-
-    def on_key_release(self, key, key_modifiers):
-        if key == arcade.key.SPACE:
-            if self.state == 'start':
-                self.state = 'game'
-            if self.state == 'over':
-                self.state = 'start'
+    # def on_key_release(self, key, key_modifiers):
+    #     if key == arcade.key.SPACE:
+    #         if self.state == 'start':
+    #             self.state = 'game'
+    #         if self.state == 'over':
+    #             self.state = 'start'
 
     def animate(self, delta):
         if self.state == 'game':
             self.time += delta
         if self.time >= 10:
             self.state = 'over'
+            self.time = 0
+            self.ans = ''
+            self.num1 = random.randint(0, 50)
+            self.num2 = random.randint(0, 50)
+            self.result = self.num1 + self.num2
