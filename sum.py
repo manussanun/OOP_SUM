@@ -18,6 +18,11 @@ class SumMeGameWindow(arcade.Window):
         arcade.set_background_color(arcade.color.PINK)
         if self.world.state == 'start' :
             self.startScreen.draw()
+        if self.world.state == 'game' :
+            arcade.draw_text(self.world.ans, self.width/2, self.height/2,
+                            arcade.color.BLACK, 30)
+    # def animate(self, delta):
+    #     self.world.animate(delta)
 
     def on_key_press(self, key, key_modifiers):
         self.world.on_key_press(key, key_modifiers)
