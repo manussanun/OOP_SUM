@@ -1,4 +1,5 @@
 import arcade.key
+import random
 
 class World:
 
@@ -9,6 +10,11 @@ class World:
         self.ans = ''
         self.sum_ans = 0
         self.ans_pos_x = self.width/2
+        self.time = 0
+        self.score = 0
+        self.num1 = random.randint(0, 1000)
+        self.num2 = random.randint(0, 1000)
+        self.result = self.num1 + self.num2
 
     def on_key_press(self, key, key_modifiers):
         if self.state == 'game':
@@ -39,10 +45,20 @@ class World:
                 self.sum_ans = int(self.ans)
                 self.ans = ''
                 self.ans_pos_x = self.width/2
+                self.num1 = random.randint(0, 1000)
+                self.num2 = random.randint(0, 1000)
+                self.result = self.num1 + self.num2
+
 
     def on_key_release(self, key, key_modifiers):
-        if key == arcade.key.SPACE and self.state == 'start':
-            self.state = 'game'
+        if key == arcade.key.SPACE:
+            if self.state == 'start':
+                self.state = 'game'
+            if self.state == 'over':
+                self.state = 'start'
 
-
-    # def animate(self, delta):
+    def animate(self, delta):
+        if self.state == 'game':
+            self.time += delta
+        if self.time >= 10:
+            self.state = 'over'
