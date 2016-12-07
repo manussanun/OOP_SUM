@@ -58,13 +58,6 @@ class World:
                 self.num2 = random.randint(0, 50)
                 self.result = self.num1 + self.num2
 
-    # def on_key_release(self, key, key_modifiers):
-    #     if key == arcade.key.SPACE:
-    #         if self.state == 'start':
-    #             self.state = 'game'
-    #         if self.state == 'over':
-    #             self.state = 'start'
-
     def animate(self, delta):
         if self.state == 'game':
             self.time += delta
