@@ -7,9 +7,11 @@ class World:
         self.height = height
         self.state = 'start'
         self.ans = ''
+        self.ans_pos_x = width/2
 
     def on_key_press(self, key, key_modifiers):
-        if self.state == 'game':
+        if self.state == 'game' and 48 <= key <= 57:
+            self.ans_pos_x -= 11
             if key == 48:
                 self.ans += '0'
             elif key == 49:

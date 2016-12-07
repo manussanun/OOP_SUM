@@ -19,7 +19,7 @@ class SumMeGameWindow(arcade.Window):
         if self.world.state == 'start' :
             self.startScreen.draw()
         if self.world.state == 'game' :
-            arcade.draw_text(self.world.ans, self.width/2, self.height/2,
+            arcade.draw_text(self.world.ans, self.world.ans_pos_x, self.height/2,
                             arcade.color.BLACK, 30)
     # def animate(self, delta):
     #     self.world.animate(delta)
