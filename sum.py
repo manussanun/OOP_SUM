@@ -22,7 +22,7 @@ class SumMeGameWindow(arcade.Window):
             arcade.draw_text(self.world.ans, self.world.ans_pos_x, self.world.height - 600,
                             arcade.color.BLACK, 30)
             arcade.draw_text('+', self.world.width - 600, self.world.height - 300,
-                            arcade.color.BLACK, 30)
+                            arcade.color.BLACK, 40)
             arcade.draw_text(str(int(self.world.time)), self.world.width - 600, self.world.height - 100,
                             arcade.color.BLACK, 20)
             arcade.draw_text(str(self.world.num1), self.world.width - 900, self.world.height - 300,

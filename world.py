@@ -68,7 +68,7 @@ class World:
     def animate(self, delta):
         if self.state == 'game':
             self.time += delta
-        if self.time >= 10:
+        if self.time >= 30:
             self.state = 'over'
             self.time = 0
             self.ans = ''
